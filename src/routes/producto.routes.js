@@ -1,14 +1,13 @@
-import {Router} from "express"
-import productoCtrl from "../controllers/producto.controllers"
+import { Router } from "express";
+import productoCtrl from "../controllers/producto.controllers";
 
-const router = Router()
+const router = Router();
 
 //crear rutas
-router.route("/").delete(productoCtrl.borrarProducto)
+router
+  .route("/")
+  .delete(productoCtrl.borrarProducto)
+  .post(productoCtrl.crearProducto)
+  .get(productoCtrl.listarProductos);
 
-// app.get("/",(req,res)=>{
-//     res.send("hola desde el servidor backend")
-
-
-
-export default router
+export default router;
