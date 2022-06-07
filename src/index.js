@@ -2,6 +2,7 @@ import express from "express"
 import morgan from "morgan"
 import cors from "cors"
 import path from "path"
+import router from "./routes/producto.routes"
 
 //creo una instancia de express
 const app = express()
@@ -22,9 +23,5 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname,"../public")))
 
 //crear rutas 
-app.get("/",(req,res)=>{
-res.send("hola desde el servidor backend")
-})
-app.delete("/borrardatos",(req,res)=>{
-    res.send("aqui vamos a borrar")
-    })
+app.use("/apicrud",router)
+
