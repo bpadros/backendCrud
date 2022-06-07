@@ -10,8 +10,8 @@ productoCtrl.borrarProducto = (req,res)=>{
 }
 
 productoCtrl.crearProducto = (req,res)=>{
-    res.send("quiero crear productos")
+        console.log(req.body)
+    res.send("aqui quiero crear productos")
 }
-
 
 export default productoCtrl
