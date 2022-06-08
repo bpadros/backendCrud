@@ -3,8 +3,15 @@ import Producto from "../models/producto"
 const productoCtrl = {}
 
 //logica para obtener la lista de productos
-productoCtrl.listarProductos = (req,res)=>{
-    res.send("listar productos")
+productoCtrl.listarProductos = async(req,res)=>{
+    try {
+      //quiero crear un arreglo con todos los productos
+      const listaProductos = await Producto.find()
+      res.status(200).json(listaProductos)
+    } catch (error) {
+        console.log(error)
+        res.status(404).json({ mensaje:"no se pudo obtener el listado de productos"})
+    }
 }
 
 productoCtrl.borrarProducto = (req,res)=>{
