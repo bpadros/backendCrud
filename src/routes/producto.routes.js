@@ -9,6 +9,6 @@ router
   .post(productoCtrl.crearProducto)
   .get(productoCtrl.listarProductos);
 
-  router.route("/:id").get(productoCtrl.obtenerProducto)
+  router.route("/:id").get(productoCtrl.obtenerProducto).delete(productoCtrl.borrarProducto)
 
 export default router;

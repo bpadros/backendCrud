@@ -56,5 +56,16 @@ productoCtrl.obtenerProducto = async(req,res)=>{
     }
 
 }
+productoCtrl.borrarProducto = async(req,res)=>{
+    try {
+       //busque un producto mediante el id y cuando lo encuentre lo borre
+       await Producto.findByIdAndDelete(req.params.id)
+       res.status(200).json({mensaje:"se pudo eliminar el producto indicado"})
+    } catch (error) {
+        console.log(error)
+        res.status(404).json({ mensaje:"no se pudo borrar el producto solicitado"})
+    }
+
+}
 
 export default productoCtrl
