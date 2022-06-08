@@ -5,9 +5,10 @@ const router = Router();
 
 //crear rutas
 router
-  .route("/")
-  .delete(productoCtrl.borrarProducto)
+  .route("/") 
   .post(productoCtrl.crearProducto)
   .get(productoCtrl.listarProductos);
+
+  router.route("/:id").get(productoCtrl.obtenerProducto)
 
 export default router;
